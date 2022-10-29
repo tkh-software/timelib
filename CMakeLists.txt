@@ -63,7 +63,6 @@ install(DIRECTORY "${CMAKE_SOURCE_DIR}/include/TimeLib"
 include(CTest)
 
 if (${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
+    enable_testing()
     add_subdirectory(tests)
 endif ()
-
-enable_testing()
