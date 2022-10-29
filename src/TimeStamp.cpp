@@ -18,18 +18,17 @@ namespace tl
 		format += delimiter;
 		format += "%H:%M:%S";
 
-		struct tm tmp;
-		gmtime_s(&tmp, &tt);
-		strftime(buff, 28, format.c_str(), &tmp);
+		tm* tmp = gmtime(&tt);
+		strftime(buff, 28, format.c_str(), tmp);
 
 		std::stringstream ss;
 		ss << buff;
 		if(prec == TimestampPrec::MILLISECONDS)
-			ss << "." << std::setfill('0') << std::setw(3) << unixtime.asMilliseconds() - (unixtime.asSeconds() * 1'000);
+			ss << "." << std::setfill('0') << std::setw(3) << unixtime.asMilliseconds() - (unixtime.asSeconds() * 1000);
 		else if(prec == TimestampPrec::MICROSECONDS)
-			ss << "." << std::setfill('0') << std::setw(6) << unixtime.asMicroseconds() - (unixtime.asSeconds() * 1'000'000);
+			ss << "." << std::setfill('0') << std::setw(6) << unixtime.asMicroseconds() - (unixtime.asSeconds() * 1000000);
 		else if (prec == TimestampPrec::NANOSECONDS)
-			ss << "." << std::setfill('0') << std::setw(9) << unixtime.asNanoseconds() - (unixtime.asSeconds() * 1'000'000'000);
+			ss << "." << std::setfill('0') << std::setw(9) << unixtime.asNanoseconds() - (unixtime.asSeconds() * 1000000000);
 		ss << suffix;
 
 		return ss.str();
