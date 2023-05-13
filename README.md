@@ -1,4 +1,4 @@
-[![CMake](https://github.com/galacticlabshq/timelib/actions/workflows/linux-build.yml/badge.svg)](https://github.com/galacticlabshq/timelib/actions/workflows/linux-build.yml)
+[![CMake](https://github.com/tkh-software/timelib/actions/workflows/linux-build.yml/badge.svg)](https://github.com/tkh-software/timelib/actions/workflows/linux-build.yml)
 
 # TimeLib
 
